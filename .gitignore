@@ -1,0 +1,27 @@
+# Ignore personal folders
+Pictures/
+
+# Build outputs
+*.exe
+*.out
+*.o
+*.obj
+*.dll
+
+# Visual Studio / Windows
+.vs/
+*.user
+*.suo
+*.vcxproj.user
+
+# CMake (if used later)
+build/
+CMakeFiles/
+CMakeCache.txt
+
+# Windows system files
+Thumbs.db
+desktop.ini
+
+# Mac (just in case)
+.DS_Store
