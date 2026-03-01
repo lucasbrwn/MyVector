@@ -1,5 +1,5 @@
 #include <iostream>
-#include "include/MyVector.hpp"
+#include "MyVector.hpp"
 
 int main() {
     CPSC131::MyVector::MyVector<int> v;
