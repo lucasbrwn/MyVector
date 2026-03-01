@@ -31,7 +31,7 @@ capacity(): O(1)
 empty(): O(1)  
 elements(): O(1)  
 at(index): O(1)  
-operator[](index): O(1)  
+'operator[]'(index): O(1)  
 set(index, element): O(1)  
 reserve(): O(n)  
 push_back(): O(1) normally, O(n) when capacity increases  
@@ -46,9 +46,9 @@ print_helper(): O(n)
 ```
 MyVector/
 ├── include/
-│ └── MyVector.hpp
+│   └── MyVector.hpp
 ├── examples/
-│ └── main.cpp
+│   └── main.cpp
 └── README.md
 ```
 
