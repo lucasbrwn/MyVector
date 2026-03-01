@@ -1,111 +1,71 @@
-# MyVector – Custom C++ Dynamic Array
+# MyVector (C++)
 
-Custom C++ container that replicates core functionality of `std::vector`.
-This project demonstrates manual memory management, template programming, and dynamic resizing strategies.
+A template-based dynamic array (similar to `std::vector`) built to practice manual memory management, resizing strategies, and copy semantics.
 
----
+## Features
 
-## Overview
+- Template container: `MyVector<T>`
+- Dynamic resizing:
+  - Grows by doubling when full
+  - Shrinks when size drops below ~1/3 of capacity (down to a minimum capacity)
+- Element operations:
+  - `push_back`, `pop_back`
+  - `insert`, `erase`
+  - `set`, `clear`
+  - `reserve`
+- Element access:
+  - `operator[]` (bounds-checked in this implementation)
+  - `at()` (index bounds-checked)
+  - `elements()` (raw pointer access)
+- Capacity info:
+  - `size()`, `capacity()`, `empty()`
+- Copy semantics:
+  - Copy constructor + copy assignment + destructor (Rule of Three)
+- Debug:
+  - `print_helper()` to print size/capacity and contents
 
-* Template-based dynamic array implementation
-* Automatic capacity growth (doubles when full)
-* Capacity shrink when size drops below 1/3
-* Full Rule of Three:
+## Time Complexity
 
-  * Copy constructor
-  * Assignment operator
-  * Destructor
-* Core operations:
-
-  * `push_back`, `pop_back`
-  * `insert`, `erase`
-  * `clear`, `reserve`
-  * `size`, `capacity`, `empty`
-  * `operator[]` and bounds-checked `at()`
-* Exception handling for invalid access and operations
-
----
-
-## Design Highlights
-
-* Dynamic memory managed using `new` and `delete[]`
-* Amortized **O(1)** insertion at the end
-* Automatic memory growth and shrink policies
-* Bounds checking with `std::out_of_range`
-* Capacity never drops below a minimum threshold
-* Helper functions used for:
-
-  * Copy logic
-  * Range validation
-  * Capacity management
-
----
+size(): O(1)  
+capacity(): O(1)  
+empty(): O(1)  
+elements(): O(1)  
+at(index): O(1)  
+operator[](index): O(1)  
+set(index, element): O(1)  
+reserve(): O(n)  
+push_back(): O(1) normally, O(n) when capacity increases  
+pop_back(): O(1) normally, O(n) when capacity decreases  
+insert(index, element): O(n)  
+erase(index): O(n)  
+clear(): O(n)  
+print_helper(): O(n)
 
 ## Project Structure
 
 ```
-include/
-  MyVector.hpp    // Template implementation
-
-main.cpp          // Optional demo/test file
-README.md
+MyVector/
+├── include/
+│ └── MyVector.hpp
+├── examples/
+│ └── main.cpp
+└── README.md
 ```
 
----
-
-## Example Usage
-
-```cpp
-#include <iostream>
-#include "MyVector.hpp"
-
-int main() {
-    CPSC131::MyVector::MyVector<int> vec;
-
-    vec.push_back(10);
-    vec.push_back(20);
-    vec.push_back(30);
-
-    vec.insert(1, 15);   // [10, 15, 20, 30]
-    vec.erase(2);        // removes 20
-
-    for (size_t i = 0; i < vec.size(); i++) {
-        std::cout << vec[i] << " ";
-    }
-}
-```
-
-Output:
-
-```
-10 15 30
-```
-
----
-
-## How to Build
+## Build and Run
 
 From the project root:
 
+```bash
+g++ -std=c++17 -Wall -Wextra -pedantic examples/main.cpp -I include -o myvector_example
+./myvector_example
 ```
-g++ -std=c++17 -Wall -Wextra -pedantic main.cpp -I include -o demo
-./demo
-```
 
----
+## Purpose
 
-## What I Learned
+This project was developed to strengthen understanding of:
 
-* Manual memory management and ownership in C++
-* Implementing the Rule of Three
-* Designing dynamic data structures
-* Amortized time complexity and resizing tradeoffs
-* Writing reusable template classes
-* Exception-safe container operations
-
----
-
-## Tech Stack
-
-* C++
-* Standard Library
+- Manual memory management in C++
+- Dynamic resizing strategies and performance tradeoffs
+- Copy semantics and resource management (Rule of Three)
+- Maintaining container class invariants
