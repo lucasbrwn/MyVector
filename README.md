@@ -61,6 +61,23 @@ g++ -std=c++17 -Wall -Wextra -pedantic examples/main.cpp -I include -o myvector_
 ./myvector_example
 ```
 
+## Example Demonstration
+
+The example program demonstrates:
+
+- Dynamic growth (capacity 64 → 128)
+- Shrink behavior when size falls below capacity / 3
+- Element shifting with `insert` and `erase`
+- Deep copy behavior (Rule of Three)
+- Bounds-checking exception handling
+
+## Design Decisions
+
+- **Growth strategy:** Capacity doubles when full to provide amortized O(1) `push_back()`
+- **Shrink strategy:** Capacity is reduced when `size < capacity / 3` to balance memory usage and performance
+- **Minimum capacity:** Prevents excessive reallocations for small vectors
+- **Safety:** Bounds checking added to both `at()` and `operator[]` in this implementation
+
 ## Purpose
 
 This project was developed to strengthen understanding of:
