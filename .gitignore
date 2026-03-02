@@ -1,35 +1,12 @@
-# Ignore personal folders
-Pictures/
-
-# Build outputs
+# Build artifacts
 *.exe
 *.out
 *.o
 *.obj
-*.dll
-
-# Visual Studio / Windows
-.vs/
-*.user
-*.suo
-*.vcxproj.user
-
-# CMake (if used later)
+bin/
 build/
-CMakeFiles/
-CMakeCache.txt
 
-# Windows system files
+# OS files
+.DS_Store
 Thumbs.db
 desktop.ini
-
-# Mac (just in case)
-.DS_Store
-
-# build artifacts
-*.exe
-*.o
-*.obj
-*.out
-build/
-bin/
