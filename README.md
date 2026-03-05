@@ -41,17 +41,6 @@ erase(index): O(n)
 clear(): O(n)  
 print_helper(): O(n)
 
-## Project Structure
-
-```
-MyVector/
-├── include/
-│   └── MyVector.hpp
-├── examples/
-│   └── main.cpp
-└── README.md
-```
-
 ## Build and Run
 
 From the project root:
